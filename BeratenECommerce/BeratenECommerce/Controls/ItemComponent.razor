@@ -1,0 +1,18 @@
+﻿@if (this.Item != null)
+{
+    <tr>
+        <td>
+            <NavLink class="nav-link" href="@($"item/{Item.Id}")">
+                @Item.Name
+            </NavLink>
+        </td>
+        <td>@Item.Brand</td>
+        <td>@Item.Price.ToString("c")</td>
+    </tr>
+}
+
+@code {
+    [Parameter]
+    public Item Item{ get; set; }
+
+}

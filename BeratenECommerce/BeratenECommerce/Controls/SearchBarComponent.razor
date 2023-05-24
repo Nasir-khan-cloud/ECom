@@ -1,0 +1,28 @@
+﻿
+<div>
+    Search:
+    <input type="text" @bind-value="filter"/>
+    <button @onclick="SeeachBarHandler">Search</button>
+</div>
+
+@*<form class="form-inline">
+    <div class="form-group mx-sm-3 mb-2">
+        <label for="inputPassword2" class="sr-only">Password</label>
+        <input type="text" class="form-control" id="filter" @bind-value="filter"/>
+    </div>
+    <button type="submit" @onclick="SeeachBarHandler">Search</button>
+</form>*@
+
+
+@code {
+    private string filter;
+
+    [Parameter]
+    public EventCallback<string> OnSearch{ get; set; }
+
+    private void SeeachBarHandler()
+    {
+        OnSearch.InvokeAsync(filter);
+    }
+
+}
